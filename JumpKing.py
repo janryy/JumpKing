@@ -105,7 +105,7 @@ class Platform(pygame.Rect): #platform class
 screens = [ # in order from bottom to top
     [Platform(0,710, 800,40),  Platform(650,600,200,20), Platform(650,600,20,150), Platform(300, 500, 200, 20), Platform(100, 240, 200, 20), Platform(100, 80, 700, 20)], #level one platforms
     [Platform(300, 650, 200, 20), Platform(150, 550, 300, 20), Platform(500, 300, 200, 20), Platform(50, 180, 200, 20)], # level two platforms
-    [Platform(100,700,60,20), Platform(400,600,60,20), Platform(500,550,60,20),Platform(400,500,60,20),Platform(500,450,60,20)]# Add more screens with different platform layouts
+    [Platform(100,700,60,20), Platform(400,600,60,20), Platform(500,550,60,20),Platform(400,500,60,20),Platform(500,450,60,20),Platform(600,400,60,20), Platform(740,300,60,20),Platform(400,120,100,20)]# Add more screens with different platform layouts
 ]
 
 current_screen = 0
