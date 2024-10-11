@@ -24,6 +24,8 @@ class Player(pygame.Rect): #player class
         self.jump_force = 0  # Actual force applied after charging
         self.orientation = 1 # facing right, -1 is left
         self.charging = False #pressing space or not
+        self.original_height = 40  # Store original height
+        self.squashed_height = 30  # Height when charging the jump
 
     def draw(self, screen):
         # Drawing the player
@@ -36,9 +38,12 @@ class Player(pygame.Rect): #player class
         if keys[pygame.K_SPACE] and self.on_ground:
             if self.charge < self.max_charge:
                 self.charge += 1  # Increase charge while space is held
+                self.height = self.squashed_height  # Reduce height while charging
             self.charging = True
         elif not keys[pygame.K_SPACE] and self.charge > 0:
+
             # Release space to jump
+            self.height = self.original_height  # Reset height back to normal when jumping
             if self.orientation == 1:
                 self.vx = 5 #arbitrary horizontal velocity value
             if self.orientation == -1:
@@ -64,6 +69,7 @@ class Player(pygame.Rect): #player class
             self.x = 0
         if self.x + self.width > screen.get_width():
             self.x = screen.get_width() - self.width
+
 
     def update(self):
         # Apply gravity when the player is in the air
