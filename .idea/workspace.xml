@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86f044c6-ca05-40f5-9043-401abab47282" name="Changes" comment="The dude can &quot;squat now&quot; but the wrong direction">
+    <list default="true" id="86f044c6-ca05-40f5-9043-401abab47282" name="Changes" comment="Player properly &quot;squats&quot; when charging now">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JumpKing.py" beforeDir="false" afterPath="$PROJECT_DIR$/JumpKing.py" afterDir="false" />
     </list>
@@ -114,13 +114,22 @@
       <option name="project" value="LOCAL" />
       <updated>1728658536012</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Player properly &quot;squats&quot; when charging now">
+      <option name="closed" value="true" />
+      <created>1729173545245</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1729173545245</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;jump king&quot; basic platforms" />
     <MESSAGE value="&quot;jump king&quot; basic platforms+" />
     <MESSAGE value="The dude can &quot;squat now&quot; but the wrong direction" />
-    <option name="LAST_COMMIT_MESSAGE" value="The dude can &quot;squat now&quot; but the wrong direction" />
+    <MESSAGE value="Player properly &quot;squats&quot; when charging now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Player properly &quot;squats&quot; when charging now" />
   </component>
 </project>

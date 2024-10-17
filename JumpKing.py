@@ -113,9 +113,18 @@ class Platform(pygame.Rect): #platform class
         pygame.draw.rect(screen, 'black', pygame.Rect(self.x, self.y, 5, self.height))
         pygame.draw.rect(screen, 'black', pygame.Rect(self.x+self.width - 5, self.y, 5, self.height))
 
+
+class Ice_Platform(Platform): #platform with no friction
+    def __init__(self, x, y, width, height):
+        super().__init__(x, y, width, height)
+    def draw(self, screen):
+        pygame.draw.rect(screen, 'white', self)  # Draw the platform as a green rectangle
+
+
+
 # Define different screens with platforms
 screens = [ # in order from bottom to top
-    [Platform(0,710, 800,40),  Platform(650,600,200,20), Platform(650,600,20,150), Platform(300, 500, 200, 20), Platform(100, 240, 200, 20), Platform(100, 80, 700, 20)], #level one platforms
+    [Ice_Platform(0,600,150,20), Platform(0,710, 800,40),  Platform(650,600,200,20), Platform(650,600,20,150), Platform(300, 500, 200, 20), Platform(100, 240, 200, 20), Platform(100, 80, 200, 20), Ice_Platform(300,80,350,20)], #level one platforms
     [Platform(300, 650, 200, 20), Platform(150, 550, 300, 20), Platform(500, 300, 200, 20), Platform(50, 180, 200, 20)], # level two platforms
     [Platform(100,700,60,20), Platform(400,600,60,20), Platform(500,550,60,20),Platform(400,500,60,20),Platform(500,450,60,20),Platform(600,400,60,20), Platform(740,300,60,20),Platform(400,120,100,20)]# Add more screens with different platform layouts
 ]
@@ -187,7 +196,12 @@ while True:
                 if player.bottom > platform.top and player.top < platform.top:  # Ensure player is landing on top
                     player.bottom = platform.top  # Land on top of the platform
                     player.vy = 0  # Stop vertical movement
-                    player.on_ground = True
+                    if type(platform).__name__ == "Ice_Platform":
+                        player.on_ground = False
+                    else:
+                        player.on_ground = True
+
+
 
     # Screen transition when player goes above the top of the screen (overlap)
     if player.top < 0 and current_screen < 2:
