@@ -25,7 +25,6 @@ class Player(pygame.Rect): #player class
         self.orientation = 1 # facing right, -1 is left
         self.charging = False #pressing space or not
         self.original_height = 40  # Store original height
-        self.squashed_height = 30  # Height when charging the jump
 
     def draw(self, screen):
         # Drawing the player
@@ -38,10 +37,12 @@ class Player(pygame.Rect): #player class
         if keys[pygame.K_SPACE] and self.on_ground:
             if self.charge < self.max_charge:
                 self.charge += 1  # Increase charge while space is held
-                self.height = self.squashed_height  # Reduce height while charging
+                self.height -= 1  # Reduce height while charging
+                self.y += 1
             self.charging = True
         elif not keys[pygame.K_SPACE] and self.charge > 0:
-
+            self.charging = False
+            self.y -= self.charge
             # Release space to jump
             self.height = self.original_height  # Reset height back to normal when jumping
             if self.orientation == 1:
@@ -54,7 +55,7 @@ class Player(pygame.Rect): #player class
             self.on_ground = False  # Player is not on the ground anymore
             self.charge = 0  # Reset the charge
 
-        self.charging = False
+
         # Horizontal movement (only allow left/right movement on the ground)
         if self.on_ground:
             self.vx = 0
@@ -72,6 +73,7 @@ class Player(pygame.Rect): #player class
 
 
     def update(self):
+
         # Apply gravity when the player is in the air
         if not self.on_ground:
             self.vy += self.gravity
@@ -96,6 +98,10 @@ class Player(pygame.Rect): #player class
             self.x = screen.get_width() - self.width
             self.vx = -self.vx #bouncing
             self.orientation = -1 #facing left now
+
+
+
+
 
 
 class Platform(pygame.Rect): #platform class
@@ -197,6 +203,7 @@ while True:
     # Render the graphics here.
 
     player.draw(screen)
+
 
     # Draw platforms for the current screen
     for platform in screens[current_screen]:

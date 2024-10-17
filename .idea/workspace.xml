@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86f044c6-ca05-40f5-9043-401abab47282" name="Changes" comment="&quot;jump king&quot; basic platforms" />
+    <list default="true" id="86f044c6-ca05-40f5-9043-401abab47282" name="Changes" comment="The dude can &quot;squat now&quot; but the wrong direction">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JumpKing.py" beforeDir="false" afterPath="$PROJECT_DIR$/JumpKing.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,12 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/janryy/JumpKing.git",
-    "accountId": "58b28354-258e-4f26-afed-8e55d4722948"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;janryy&quot;
   }
-}]]></component>
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/janryy/JumpKing.git&quot;,
+    &quot;accountId&quot;: &quot;58b28354-258e-4f26-afed-8e55d4722948&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -44,6 +53,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -76,11 +90,37 @@
       <option name="project" value="LOCAL" />
       <updated>1727707842690</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="&quot;jump king&quot; basic platforms">
+      <option name="closed" value="true" />
+      <created>1727708470466</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727708470466</updated>
+    </task>
+    <task id="LOCAL-00004" summary="&quot;jump king&quot; basic platforms+">
+      <option name="closed" value="true" />
+      <created>1727872801251</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727872801251</updated>
+    </task>
+    <task id="LOCAL-00005" summary="The dude can &quot;squat now&quot; but the wrong direction">
+      <option name="closed" value="true" />
+      <created>1728658536012</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1728658536012</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;jump king&quot; basic platforms" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;jump king&quot; basic platforms" />
+    <MESSAGE value="&quot;jump king&quot; basic platforms+" />
+    <MESSAGE value="The dude can &quot;squat now&quot; but the wrong direction" />
+    <option name="LAST_COMMIT_MESSAGE" value="The dude can &quot;squat now&quot; but the wrong direction" />
   </component>
 </project>
