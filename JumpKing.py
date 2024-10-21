@@ -131,8 +131,8 @@ class Sand_Platform(Platform): #platform with no friction
 # Define different screens with platforms
 screens = [ # in order from bottom to top
     [Sand_Platform(600,400,100,80), Sand_Platform(600,200,100,20), Ice_Platform(0,600,150,20), Platform(0,710, 800,40),  Platform(650,600,200,20), Platform(650,600,20,150), Platform(300, 500, 200, 20), Platform(100, 240, 200, 20), Platform(100, 80, 200, 20), Ice_Platform(300,80,300,20), Platform(600,80,50,20)], #level one platforms
-    [Platform(300, 650, 200, 20), Platform(150, 550, 300, 20), Platform(500, 300, 200, 20), Platform(50, 180, 60, 20), Ice_Platform(110, 180, 80, 20),Platform(180, 180, 80, 20)], # level two platforms
-    [Platform(100,700,60,20), Platform(400,600,60,20), Platform(500,550,60,20),Platform(400,500,60,20),Sand_Platform(500,450,60,20),Sand_Platform(600,400,60,20), Platform(740,300,60,20),Platform(400,120,100,20)]# Add more screens with different platform layouts
+    [Platform(300, 650, 200, 20), Platform(150, 550, 300, 20), Platform(500, 300, 200, 20), Sand_Platform(550,100,125,20), Platform(50, 180, 60, 20), Ice_Platform(110, 180, 80, 20),Platform(180, 180, 80, 20)], # level two platforms
+    [Sand_Platform(550,650,125,20), Platform(100,700,60,20), Platform(400,600,60,20), Platform(500,550,60,20),Platform(400,500,60,20),Sand_Platform(500,450,60,20),Sand_Platform(600,400,60,20), Platform(740,300,60,20),Platform(400,120,100,20)]# Add more screens with different platform layouts
 ]
 
 current_screen = 0
@@ -211,7 +211,7 @@ while True:
                         player.bottom = platform.top  # Land on top of the platform
                         player.vy = 0  # Stop vertical movement
                         player.on_ground = True
-                elif player.bottom < platform.top:
+                elif player.bottom < platform.bottom:
                     if type(platform).__name__ == "Sand_Platform":
                         player.vy = 1
                         player.on_ground = False
