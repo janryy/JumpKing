@@ -120,13 +120,19 @@ class Ice_Platform(Platform): #platform with no friction
     def draw(self, screen):
         pygame.draw.rect(screen, 'white', self)  # Draw the platform as a green rectangle
 
+class Sand_Platform(Platform): #platform with no friction
+    def __init__(self, x, y, width, height):
+        super().__init__(x, y, width, height)
+    def draw(self, screen):
+        pygame.draw.rect(screen, 'tan', self)  # Draw the platform as a green rectangle
+
 
 
 # Define different screens with platforms
 screens = [ # in order from bottom to top
-    [Ice_Platform(0,600,150,20), Platform(0,710, 800,40),  Platform(650,600,200,20), Platform(650,600,20,150), Platform(300, 500, 200, 20), Platform(100, 240, 200, 20), Platform(100, 80, 200, 20), Ice_Platform(300,80,350,20)], #level one platforms
-    [Platform(300, 650, 200, 20), Platform(150, 550, 300, 20), Platform(500, 300, 200, 20), Platform(50, 180, 200, 20)], # level two platforms
-    [Platform(100,700,60,20), Platform(400,600,60,20), Platform(500,550,60,20),Platform(400,500,60,20),Platform(500,450,60,20),Platform(600,400,60,20), Platform(740,300,60,20),Platform(400,120,100,20)]# Add more screens with different platform layouts
+    [Sand_Platform(600,400,100,80), Sand_Platform(600,200,100,20), Ice_Platform(0,600,150,20), Platform(0,710, 800,40),  Platform(650,600,200,20), Platform(650,600,20,150), Platform(300, 500, 200, 20), Platform(100, 240, 200, 20), Platform(100, 80, 200, 20), Ice_Platform(300,80,300,20), Platform(600,80,50,20)], #level one platforms
+    [Platform(300, 650, 200, 20), Platform(150, 550, 300, 20), Platform(500, 300, 200, 20), Platform(50, 180, 60, 20), Ice_Platform(110, 180, 80, 20),Platform(180, 180, 80, 20)], # level two platforms
+    [Platform(100,700,60,20), Platform(400,600,60,20), Platform(500,550,60,20),Platform(400,500,60,20),Sand_Platform(500,450,60,20),Sand_Platform(600,400,60,20), Platform(740,300,60,20),Platform(400,120,100,20)]# Add more screens with different platform layouts
 ]
 
 current_screen = 0
@@ -194,12 +200,22 @@ while True:
 
             elif player.vy > 0:  # Falling down (landing on the top of the platform)
                 if player.bottom > platform.top and player.top < platform.top:  # Ensure player is landing on top
-                    player.bottom = platform.top  # Land on top of the platform
-                    player.vy = 0  # Stop vertical movement
                     if type(platform).__name__ == "Ice_Platform":
+                        player.bottom = platform.top  # Land on top of the platform
+                        player.vy = 0  # Stop vertical movement
                         player.on_ground = False
-                    else:
+                    elif type(platform).__name__ == "Sand_Platform":
+                        player.vy = 1
                         player.on_ground = True
+                    elif type(platform).__name__ == "Platform":
+                        player.bottom = platform.top  # Land on top of the platform
+                        player.vy = 0  # Stop vertical movement
+                        player.on_ground = True
+                elif player.bottom < platform.top:
+                    if type(platform).__name__ == "Sand_Platform":
+                        player.vy = 1
+                        player.on_ground = False
+
 
 
 
