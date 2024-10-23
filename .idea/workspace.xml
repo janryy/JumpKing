@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86f044c6-ca05-40f5-9043-401abab47282" name="Changes" comment="Player properly &quot;squats&quot; when charging now">
+    <list default="true" id="86f044c6-ca05-40f5-9043-401abab47282" name="Changes" comment="Sand platform falling fixed">
+      <change afterPath="$PROJECT_DIR$/Doodleguy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doodleguyleft.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JumpKing.py" beforeDir="false" afterPath="$PROJECT_DIR$/JumpKing.py" afterDir="false" />
     </list>
@@ -122,14 +124,60 @@
       <option name="project" value="LOCAL" />
       <updated>1729173545245</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Ice platforms added to first level">
+      <option name="closed" value="true" />
+      <created>1729175736142</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1729175736142</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Ice platforms added to first level">
+      <option name="closed" value="true" />
+      <created>1729522517483</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1729522517483</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Sand platforms added">
+      <option name="closed" value="true" />
+      <created>1729522601914</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1729522601914</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Sand platform falling fixed">
+      <option name="closed" value="true" />
+      <created>1729536681447</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1729536681447</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;jump king&quot; basic platforms" />
     <MESSAGE value="&quot;jump king&quot; basic platforms+" />
     <MESSAGE value="The dude can &quot;squat now&quot; but the wrong direction" />
     <MESSAGE value="Player properly &quot;squats&quot; when charging now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Player properly &quot;squats&quot; when charging now" />
+    <MESSAGE value="Ice platforms added to first level" />
+    <MESSAGE value="Sand platforms added" />
+    <MESSAGE value="Sand platform falling fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sand platform falling fixed" />
   </component>
 </project>
