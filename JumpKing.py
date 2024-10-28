@@ -10,6 +10,12 @@ clock = pygame.time.Clock()
 # Constants
 SCREEN_WIDTH, SCREEN_HEIGHT = screen.get_size()
 
+# Load background image
+background_image = pygame.image.load("background.png")
+background_image_2 = pygame.image.load("background2.tiff")
+background_image_3 = pygame.image.load("background3.tiff")
+background_image_3 = pygame.transform.scale(background_image_3, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
 
 # class Player(pygame.Rect): #player class
 #     def __init__(self, x, y):
@@ -316,8 +322,15 @@ while True:
     if player.bottom >= SCREEN_HEIGHT:  # Allow for 100-pixel overlap when transitioning
         load_previous_screen()
 
-
-    screen.fill('light blue')  # Fill the display with a solid color
+        # Draw the background if current_screen is 0
+    if current_screen == 0:
+        screen.blit(background_image, (0, 0))
+    elif current_screen == 1:
+        screen.blit(background_image_2, (0,0))
+    elif current_screen == 2:
+        screen.blit(background_image_3, (0,0))
+    else:
+        screen.fill('light blue')
 
     # Render the graphics here.
 
