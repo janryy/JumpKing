@@ -106,7 +106,7 @@ background_image_3 = pygame.transform.scale(background_image_3, (SCREEN_WIDTH, S
 #             self.orientation = -1 #facing left now
 
 class Player(pygame.Rect):  # player class
-    def __init__(self, x, y, image_path, image_path_left):
+    def __init__(self, x, y, image_path_right, image_path_left):
         super().__init__(x, y, 40, 40)  # Initial size will adjust to image
         self.vy = 0  # Vertical velocity
         self.vx = 0  # Horizontal velocity
@@ -121,19 +121,21 @@ class Player(pygame.Rect):  # player class
         self.original_height = 40  # Store original height
 
         # Load the player image
-        self.image = pygame.image.load(image_path)
+        self.image = pygame.image.load(image_path_right)
         self.image = pygame.transform.scale(self.image, (self.width, self.height))  # Scale to the rect size
 
     def draw(self, screen):
         # Draw the player image
         screen.blit(self.image, (self.x, self.y))
 
-    def handle_input(self, keys, image_path, image_path_left):
+    def handle_input(self, keys, image_path_right, image_path_left):
         # Jump mechanic: Charge the jump while holding space, release to jump
         if keys[pygame.K_SPACE] and self.on_ground:
             if self.charge < self.max_charge:
                 self.charge += 1  # Increase charge while space is held
                 self.height -= 1  # Reduce height while charging
+                self.image = pygame.image.load(image_path_right)
+                self.image = pygame.transform.scale(self.image, (self.width, self.height))
                 self.y += 1
             self.charging = True
         elif not keys[pygame.K_SPACE] and self.charge > 0:
@@ -143,15 +145,19 @@ class Player(pygame.Rect):  # player class
             self.height = self.original_height  # Reset height back to normal when jumping
             if self.orientation == 1:
                 self.vx = 5  # Arbitrary horizontal velocity value
+                self.image = pygame.image.load(image_path_right)
+                self.image = pygame.transform.scale(self.image, (self.width, self.height))
             if self.orientation == -1:
                 self.vx = -5
+                self.image = pygame.image.load(image_path_left)
+                self.image = pygame.transform.scale(self.image, (self.width, self.height))
             self.jump_force = -self.charge  # The higher the charge, the stronger the jump
             self.vy = self.jump_force  # Set vertical velocity to jump force
             self.jumping = True  # Now the player is in the air
             self.on_ground = False  # Player is not on the ground anymore
             self.charge = 0  # Reset the charge
 
-        # Horizontal movement (only allow left/right movement on the ground)
+        # movement (only allow left/right movement on the ground)
         if self.on_ground:
             self.vx = 0
             self.orientation = 0
@@ -161,7 +167,7 @@ class Player(pygame.Rect):  # player class
                 self.image = pygame.transform.scale(self.image, (self.width, self.height))
             elif keys[pygame.K_RIGHT]:
                 self.orientation = 1  # Facing right
-                self.image = pygame.image.load(image_path)
+                self.image = pygame.image.load(image_path_right)
                 self.image = pygame.transform.scale(self.image, (self.width, self.height))  # Scale to the rect size
 
         # Ensure player doesn't move off the screen horizontally
@@ -298,7 +304,15 @@ while True:
                     if type(platform).__name__ == "Ice_Platform":
                         player.bottom = platform.top  # Land on top of the platform
                         player.vy = 0  # Stop vertical movement
-                        player.on_ground = False
+                        if player.vx < 0:
+                            player.on_ground = False
+                            player.vx += 0.2
+                        if player.vx > 0:
+                            player.on_ground = False
+                            player.vx -= 0.2
+                        if -0.2 <= player.vx <= 0.2:
+                            player.vx = 0
+                            player.on_ground = True
                     elif type(platform).__name__ == "Sand_Platform":
                         player.vy = 1
                         player.on_ground = True
