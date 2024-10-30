@@ -151,6 +151,9 @@ class Player(pygame.Rect):  # player class
                 self.vx = -5
                 self.image = pygame.image.load(image_path_left)
                 self.image = pygame.transform.scale(self.image, (self.width, self.height))
+            if self.orientation == 0:
+                self.image = pygame.image.load(image_path_right)
+                self.image = pygame.transform.scale(self.image, (self.width, self.height))
             self.jump_force = -self.charge  # The higher the charge, the stronger the jump
             self.vy = self.jump_force  # Set vertical velocity to jump force
             self.jumping = True  # Now the player is in the air
