@@ -14,8 +14,10 @@ SCREEN_WIDTH, SCREEN_HEIGHT = screen.get_size()
 background_image = pygame.image.load("background.png")
 background_image_2 = pygame.image.load("background2.tiff")
 background_image_3 = pygame.image.load("background3.tiff")
+background_image_4 = pygame.image.load("background4.tiff")
 easter_egg_background = pygame.image.load("easter_egg_background.jpg")
 background_image_3 = pygame.transform.scale(background_image_3, (SCREEN_WIDTH, SCREEN_HEIGHT))
+background_image_4 = pygame.transform.scale(background_image_4, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
 
 class Player(pygame.Rect):  # player class
@@ -197,7 +199,6 @@ def rect_intersect_buffer(rect1, rect2, buffer_x=0, buffer_y=0, corner_buffer=0)
 # Function to load the next screen
 def load_next_screen():
     global current_screen
-#    if current_screen < 2:
     current_screen+= 1
     player.y = SCREEN_HEIGHT - player.height - 1  # Move player to bottom of new screen, 100px overlap
 
@@ -469,12 +470,12 @@ while True:
         screen.blit(background_image_2, (0,0))
     elif current_screen == 2:
         screen.blit(background_image_3, (0, 0))
+    elif current_screen > 2:
+        screen.blit(background_image_4, (0, 0))
     elif current_screen == "easter_egg":
         screen.blit(easter_egg_background, (0,0))
         pygame.draw.rect(screen, 'brown', pygame.Rect(750, 650, 50, 60))
         pygame.draw.circle(screen, 'gold', (770, 680), 5)
-    else:
-        screen.blit(background_image_3, (0, 0))
 
 
     # Render the graphics here.
