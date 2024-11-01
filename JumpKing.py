@@ -15,10 +15,9 @@ background_image = pygame.image.load("background.png")
 background_image_2 = pygame.image.load("background2.tiff")
 background_image_3 = pygame.image.load("background3.tiff")
 background_image_4 = pygame.image.load("background4.tiff")
+background_image_4 = pygame.transform.scale(background_image_4, (SCREEN_WIDTH, SCREEN_HEIGHT))
 easter_egg_background = pygame.image.load("easter_egg_background.jpg")
 background_image_3 = pygame.transform.scale(background_image_3, (SCREEN_WIDTH, SCREEN_HEIGHT))
-background_image_4 = pygame.transform.scale(background_image_4, (SCREEN_WIDTH, SCREEN_HEIGHT))
-
 
 class Player(pygame.Rect):  # player class
     def __init__(self, x, y, image_path_right, image_path_left):
@@ -145,6 +144,14 @@ class Sand_Platform(Platform): #platform with no friction
     def draw(self, screen):
         pygame.draw.rect(screen, 'tan', self)  # Draw the platform as a green rectangle
 
+class Reward(pygame.Rect):
+    def __init__(self, x, y, width, height, image_path):
+        super().__init__(x, y, width, height)
+        self.image = pygame.image.load(image_path)
+        self.image = pygame.transform.scale(self.image, (width,height))
+    def draw(self, screen):
+        # Draw the player image
+        screen.blit(self.image, (self.x, self.y))
 
 
 # Define different screens with platforms
@@ -470,12 +477,19 @@ while True:
         screen.blit(background_image_2, (0,0))
     elif current_screen == 2:
         screen.blit(background_image_3, (0, 0))
-    elif current_screen > 2:
-        screen.blit(background_image_4, (0, 0))
     elif current_screen == "easter_egg":
         screen.blit(easter_egg_background, (0,0))
         pygame.draw.rect(screen, 'brown', pygame.Rect(750, 650, 50, 60))
         pygame.draw.circle(screen, 'gold', (770, 680), 5)
+        # making award
+        award = Reward(200,40,40,40, "easter_egg_reward.tiff")
+        award.draw(screen)
+        if player.colliderect(award):
+            current_screen = 1
+            player.x = 600
+            player.y = 200
+    elif current_screen.is_integer() and current_screen > 2:
+        screen.blit(background_image_4, (0, 0))
 
 
     # Render the graphics here.
