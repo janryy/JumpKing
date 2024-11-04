@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86f044c6-ca05-40f5-9043-401abab47282" name="Changes" comment="random platforms added&#10;additional easter egg level added">
+    <list default="true" id="86f044c6-ca05-40f5-9043-401abab47282" name="Changes" comment="new background for random levels">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JumpKing.py" beforeDir="false" afterPath="$PROJECT_DIR$/JumpKing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +194,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730466253468</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="new background for random levels">
+      <option name="closed" value="true" />
+      <created>1730473618310</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1730473618310</updated>
+    </task>
+    <task id="LOCAL-00017" summary="new background for random levels">
+      <option name="closed" value="true" />
+      <created>1730480973560</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1730480973560</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,6 +237,7 @@
     <MESSAGE value="Sprite jumping is fixed&#10;Ice platforms have slight friction now" />
     <MESSAGE value="Sprite vertical jumping look is fixed" />
     <MESSAGE value="random platforms added&#10;additional easter egg level added" />
-    <option name="LAST_COMMIT_MESSAGE" value="random platforms added&#10;additional easter egg level added" />
+    <MESSAGE value="new background for random levels" />
+    <option name="LAST_COMMIT_MESSAGE" value="new background for random levels" />
   </component>
 </project>

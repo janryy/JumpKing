@@ -316,9 +316,13 @@ def can_jump_between_platforms(start_plat, end_plat,
                         elif pos_y > end_plat.bottom:
                             break
                     # check for any extra collisions
+                    collides = False
                     for platform in platforms:
                         if platform.colliderect(pygame.Rect(pos_x - 40, pos_y - 40, 40, 40)):
+                            collides = True
                             break
+                    if collides:
+                        break
     if right:
         start_x = start_plat.right - 4
         end_x = start_plat.left - 36
@@ -348,9 +352,13 @@ def can_jump_between_platforms(start_plat, end_plat,
                         elif pos_y > end_plat.bottom:
                             break
                     # check for any extra collisions
+                    collides = False
                     for platform in platforms:
                         if platform.colliderect(pygame.Rect(pos_x, pos_y - 40, 40, 40)):
+                            collides = True
                             break
+                    if collides:
+                        break
     return False
 
 #loading easter egg screens
