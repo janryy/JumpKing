@@ -19,6 +19,17 @@ background_image_4 = pygame.transform.scale(background_image_4, (SCREEN_WIDTH, S
 easter_egg_background = pygame.image.load("easter_egg_background.jpg")
 background_image_3 = pygame.transform.scale(background_image_3, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
+font = pygame.font.Font(None, 36)  # Default font, size 36
+
+# Function to display the level counter at the top left
+def display_level(level):
+    if level == -1:
+        level_text = font.render(f"Level: ???", True, (0, 0, 0))  # White text
+        screen.blit(level_text, (10, 10))
+    else:
+        level_text = font.render(f"Level: {level + 1}", True, (255, 255, 255))  # White text
+        screen.blit(level_text, (10, 10))
+
 class Player(pygame.Rect):  # player class
     def __init__(self, x, y, image_path_right, image_path_left):
         super().__init__(x, y, 40, 40)  # Initial size will adjust to image
@@ -73,8 +84,6 @@ class Player(pygame.Rect):  # player class
             self.jumping = True  # Now the player is in the air
             self.on_ground = False  # Player is not on the ground anymore
             self.charge = 0  # Reset the charge
-        if keys[pygame.K_l]:
-            self.y -= 100
 
         # movement (only allow left/right movement on the ground)
         if self.on_ground:
@@ -389,7 +398,6 @@ while True:
 
 
     # Do logical updates here.
-
     player.update()  # Update player position first
 
     # Check if player is in the bottom left corner of the first screen
@@ -448,7 +456,7 @@ while True:
                         player.bottom = platform.top  # Land on top of the platform
                         player.vy = 0  # Stop vertical movement
                         player.on_ground = True
-                elif player.bottom < platform.bottom:
+                elif player.bottom > platform.bottom + 10:
                     if type(platform).__name__ == "Sand_Platform":
                         player.vy = 1
                         player.on_ground = False
@@ -460,13 +468,6 @@ while True:
     # Screen transition when player falls below the bottom of the screen (overlap)
     if current_screen != "easter_egg" and player.bottom >= SCREEN_HEIGHT:
         load_previous_screen()
-
-    #platform collisions
-    #for platform in screens[current_screen]:
-
-
-
-
 
     # Screen transition when player goes above the top of the screen (overlap)
     if player.top < 0:
@@ -490,20 +491,20 @@ while True:
         pygame.draw.rect(screen, 'brown', pygame.Rect(750, 650, 50, 60))
         pygame.draw.circle(screen, 'gold', (770, 680), 5)
         # making award
-        award = Reward(200,40,40,40, "easter_egg_reward.tiff")
+        award = Reward(168,20,70,70, "easter_egg.png")
         award.draw(screen)
         if player.colliderect(award):
-            current_screen = 1
-            player.x = 600
-            player.y = 200
+            current_screen = 2
+            if generated_screen == 2:
+                generate_next_screen()
+            player.x = 472
+            player.y = 60
     elif current_screen.is_integer() and current_screen > 2:
         screen.blit(background_image_4, (0, 0))
 
 
     # Render the graphics here.
-
     player.draw(screen)
-
 
     # Draw platforms for the current screen
     # for platform in screens[current_screen]:
@@ -511,6 +512,10 @@ while True:
     for platform in screens[current_screen] if current_screen != "easter_egg" else easter_egg_screens:
         platform.draw(screen)
 
+    if (current_screen != "easter_egg"):
+        display_level(current_screen)
+    else:
+        display_level(-1)
 
 
     pygame.display.flip()  # Refresh on-screen display
